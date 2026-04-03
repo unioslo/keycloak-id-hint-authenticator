@@ -1,0 +1,81 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# IDE - Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.project
+.classpath
+.externalToolBuilders/
+*.launch
+.buildpath
+.target
+
+# IDE - VS Code
+.vscode/
+*.code-workspace
+
+# IDE - NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Claude Code
+.claude/
+
+# Sensitive files
+*.env
+*.env.local
+secrets.properties
+credentials.json
