@@ -124,12 +124,13 @@ Requested essential acr value 'possessionorinherence' is not a number and it is 
 
 ### 3. Configure Your 2FA Authenticator (REQUIRED)
 
-**This authenticator does NOT perform 2FA** - you must add a separate 2FA authenticator to your flow that:
+**This authenticator does NOT perform 2FA** - you must add a separate 2FA authenticator to your flow that performs actual multi-factor authentication (e.g., OTP, FIDO2, SMS).
 
-1. Performs actual multi-factor authentication (e.g., OTP, FIDO2, SMS)
-2. Sets authentication session notes for the ACR and AMR claims
+You have two options for providing the ACR and AMR claims:
 
-**In your 2FA authenticator code:**
+#### Option A: Dynamic Claims (Recommended)
+
+Modify your 2FA authenticator code to set authentication session notes after successful authentication:
 
 ```java
 @Override
@@ -148,6 +149,14 @@ public void authenticate(AuthenticationFlowContext context) {
     context.success();
 }
 ```
+
+This approach is more flexible and allows the claims to reflect the actual authentication method used.
+
+#### Option B: Hardcoded Claims (Simple Alternative)
+
+If you don't want to modify your authenticator code, you can use hardcoded protocol mappers instead of User Session Note mappers (see section 4 below). Use **Hardcoded claim** mappers instead of **User Session Note** mappers for ACR and AMR.
+
+This is simpler to configure but less flexible - the same ACR/AMR values will always be returned regardless of which 2FA method was actually used.
 
 ### 4. Configure Protocol Mappers
 
